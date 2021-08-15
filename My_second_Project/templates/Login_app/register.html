@@ -1,0 +1,23 @@
+{% extends 'Login_app/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+{% if registered %}
+
+<div class="alert alert-success"> Congratulation!!! Registration Successful!!!</div>
+
+{% else %}
+
+<form method ="POST" enctype="multipart/form-data" class="form-control fw-bolder border border-success border-2 rounded bg-secondary">
+{% csrf_token %}
+<div class="form-control fw-bolder border border-success border-2 rounded bg-secondary">
+{{ user_form.as_p }}
+{{ user_info_form.as_p }}
+</div>
+<input type="submit" name="submit" value="Register" class="btn btn-success form-control ">
+</form>
+
+{% endif %}
+
+{% endblock %}
